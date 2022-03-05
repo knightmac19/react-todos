@@ -1,21 +1,20 @@
 import React, { useState } from "react";
-import { Container } from "reactstrap";
-
+import { Container, Button } from "reactstrap";
+import "./Jumbotron.css";
 
 const Jumbotron = () => {
-
   const [dateTime, setDateTime] = useState(new Date());
 
   const updateTimestamp = () => {
     setInterval(() => {
-        setDateTime(new Date());
-    },1000)
+      setDateTime(new Date());
+    }, 1000);
   };
 
   return (
-    <div className="mt-4 p-5 text-white rounded">
-      <Container>
-        <h1 className=" pb-5">Todos Manager</h1>
+    <div className="mt-4 text-white rounded">
+      <Container className="">
+        <h1 className="pb-3">Todos Manager</h1>
         <div className="text-center">
           <h4 className="datestamp">{dateTime.toString().substring(0, 15)}</h4>
           <h5 className="timestamp">

@@ -25,3 +25,14 @@ body {
   
 }
 
+.mycont {
+  border-style: dotted;
+  border-color: red;
+  border-width: 3px;
+}
+
+.myrow {
+  border-style: dotted;
+  border-color: green;
+  border-width: 3px;
+}
