@@ -10,7 +10,9 @@ html {
 
 body {
   margin: 0;
-  background-color: #3f3f3f;
+  /* background-color: #3f3f3f; */
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #155fbf, #b0bac2);
 }
 
-/* background: linear-gradient(to bottom, #155fbf, #cfd7df); */

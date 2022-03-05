@@ -2,9 +2,20 @@
     position:absolute;
     bottom: 0px;
     width:100%;
-    height: 30px;
-    /* color: white; */
+    height: 40px;
+    
+    background-color: #155fbf;
+    
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    vertical-align: middle;
+    margin: 0 auto;
+    color: #cfd7df;
+    height:100%;
     text-align: center;
-    background-color: #cfd7df;
-    vertical-align: center;
+    
 }
