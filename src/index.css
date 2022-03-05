@@ -9,10 +9,19 @@ html {
 }
 
 body {
+  
+  background: linear-gradient(to bottom, #155fbf, #b0bac2);
+}
+
+.content-wrap {
+  margin-bottom: -40px;
   margin: 0;
   /* background-color: #3f3f3f; */
   position: relative;
   min-height: 100vh;
-  background: linear-gradient(to bottom, #155fbf, #b0bac2);
+  border-style: solid;
+  /* border-color: #b0bac2; */
+  border-width: 0.05px;
+  
 }
 

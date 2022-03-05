@@ -1,13 +1,13 @@
-import React from 'react';
+import React from "react";
 import "./App.css";
 
-import Footer from './components/Layout/Footer';
-
+import Jumbotron from "./components/Layout/Jumbotron";
+import Footer from "./components/Layout/Footer";
 
 const App = () => {
   return (
-    <div>
-      <h2>Let's get started</h2>
+    <div className="content-wrap">
+      <Jumbotron />
       <Footer />
     </div>
   );
