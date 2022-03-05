@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
+import AddNewBtn from "../Content/AddNewBtn";
 
 const TodoTable = (props) => {
   return (
@@ -11,6 +12,10 @@ const TodoTable = (props) => {
               <input type="checkbox" disabled="disabled" checked /> Add Todos
               here...
             </li>
+            <div className="list-header">
+                {/* {dynamic li's go here} */}
+            </div>
+            <AddNewBtn />
           </ul>
         </Col>
       </Row>
