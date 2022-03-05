@@ -1,10 +1,12 @@
 import React from "react";
-import { Container, Row, Col } from "reactstrap";
-import AddNewBtn from "../Content/AddNewBtn";
+import { Container, Row, Col, Button } from "reactstrap";
+import AddNewBtn from "./AddNewBtn";
+import TodoItem from "./TodoItem";
+
 
 const TodoTable = (props) => {
   return (
-    <Container className="mycont">
+    <Container className="">
       <Row className="mb-2 justify-content-center">
         <Col className="col-lg-9 col-md-9 col-sm-12 col-12">
           <ul className="list-group">
@@ -13,8 +15,11 @@ const TodoTable = (props) => {
               here...
             </li>
             <div className="list-header">
-                {/* {dynamic li's go here} */}
+              {/* {dynamic li's go here} */}
+              <TodoItem />
+
             </div>
+
             <AddNewBtn />
           </ul>
         </Col>

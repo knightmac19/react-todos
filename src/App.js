@@ -3,7 +3,7 @@ import "./App.css";
 
 import Jumbotron from "./components/Layout/Jumbotron";
 import Footer from "./components/Layout/Footer";
-import TodoTable from "./components/Layout/TodoTable";
+import TodoTable from "./components/Content/TodoTable";
 import ClearAllBtn from "./components/Content/ClearAllBtn";
 
 import { Container, Row, Col, Button } from "reactstrap";
