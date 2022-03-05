@@ -4,6 +4,7 @@ import "./App.css";
 import Jumbotron from "./components/Layout/Jumbotron";
 import Footer from "./components/Layout/Footer";
 import TodoTable from "./components/Layout/TodoTable";
+import ClearAllBtn from "./components/Content/ClearAllBtn";
 
 import { Container, Row, Col, Button } from "reactstrap";
 
@@ -25,11 +26,8 @@ const App = () => {
   return (
     <div className="content-wrap">
       <Jumbotron />
-      <Container className="d-flex flex-direction-row justify-content-end mb-2">
-        <Row className="pt-0 pb-0 pl-0 p-2">
-          <Button color="danger">Clear All</Button>
-        </Row>
-      </Container>
+      <ClearAllBtn />
+      
       <TodoTable />
       
 
