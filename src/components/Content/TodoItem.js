@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
@@ -7,16 +7,35 @@ import "./TodoItem.css";
 
 const TodoItem = (props) => {
   const [checkbox, setCheckbox] = useState(props.completed);
+  const [textDecoration, setTextDecoration] = useState("");
+  const [displayTrashBtn, setDisplayTrashBtn] = useState("none");
+
+  // const
 
   // console.log("in TodoItem");
   // console.log(props);
 
   const checkboxChangeHandler = (e) => {
-    console.log(e.target.value);
-    console.log(e.target.parentNode.id);
+    // console.log(e.target.value);
+    // console.log(e.target.parentNode.id);
 
-    !checkbox ? setCheckbox(true) : setCheckbox(false);
+    if (!checkbox) {
+      setCheckbox(true);
+      setTextDecoration("line-through");
+      setDisplayTrashBtn("");
+    } else {
+      setCheckbox(false);
+      setTextDecoration("");
+      setDisplayTrashBtn("none");
+    }
   };
+
+  useEffect(() => {
+    if (checkbox) {
+      setTextDecoration("line-through");
+      setDisplayTrashBtn("");
+    }
+  }, []);
 
   return (
     <li
@@ -31,9 +50,19 @@ const TodoItem = (props) => {
         onChange={checkboxChangeHandler}
       />{" "}
       <label
-        style={{textDecorationLine: '', textDecorationStyle:'solid'}}
-      >{props.text} </label>
-      <Button type="button" color="danger" className="clear-this-btn float-end">
+        style={{
+          textDecorationLine: textDecoration,
+          textDecorationStyle: "solid",
+        }}
+      >
+        {props.text}{" "}
+      </label>
+      <Button
+        type="button"
+        color="danger"
+        className="clear-this-btn float-end"
+        style={{ display: displayTrashBtn }}
+      >
         <FontAwesomeIcon
           className="clear-this-icon fa-lg"
           aria-hidden="true"

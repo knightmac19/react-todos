@@ -12,7 +12,7 @@ const DUMMY_DATA = [
   { id: Math.random().toString(), text: "organize office", completed: false },
   { id: Math.random().toString(), text: "pickup milk", completed: false },
   { id: Math.random().toString(), text: "go to gym", completed: false },
-  { id: Math.random().toString(), text: "cook dinner", completed: false },
+  { id: Math.random().toString(), text: "cook dinner", completed: true },
 ];
 
 const App = () => {
