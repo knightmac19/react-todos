@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 import Jumbotron from "./components/Layout/Jumbotron";
@@ -6,15 +6,18 @@ import Footer from "./components/Layout/Footer";
 import TodoTable from "./components/Content/TodoTable";
 import ClearAllBtn from "./components/Content/ClearAllBtn";
 
-import { Container, Row, Col, Button } from "reactstrap";
+// import { Container, Row, Col, Button } from "reactstrap";
+
+const DUMMY_DATA = [
+  { id: Math.random().toString(), text: "organize office", completed: false },
+  { id: Math.random().toString(), text: "pickup milk", completed: false },
+  { id: Math.random().toString(), text: "go to gym", completed: false },
+  { id: Math.random().toString(), text: "cook dinner", completed: false },
+];
 
 const App = () => {
-  const DUMMY_DATA = [
-    { id: Math.random().toString(), text: "organize office", completed: false },
-    { id: Math.random().toString(), text: "pickup milk", completed: false },
-    { id: Math.random().toString(), text: "go to gym", completed: false },
-    { id: Math.random().toString(), text: "cook dinner", completed: false },
-  ];
+  const [todos, setTodos] = useState(DUMMY_DATA);
+
   // console.log(DUMMY_DATA);
   // todos
   // write jsx in app for table
@@ -26,11 +29,10 @@ const App = () => {
   return (
     <div className="content-wrap">
       <Jumbotron />
-      
+
       <ClearAllBtn />
-      
-      <TodoTable />
-      
+
+      <TodoTable items={todos}/>
 
       <Footer />
     </div>

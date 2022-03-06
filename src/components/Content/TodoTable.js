@@ -3,8 +3,9 @@ import { Container, Row, Col, Button } from "reactstrap";
 import AddNewBtn from "./AddNewBtn";
 import TodoItem from "./TodoItem";
 
-
 const TodoTable = (props) => {
+  console.log('in TodoTable')
+  console.log(props);
   return (
     <Container className="">
       <Row className="mb-2 justify-content-center">
@@ -16,8 +17,34 @@ const TodoTable = (props) => {
             </li>
             <div className="list-header">
               {/* {dynamic li's go here} */}
-              <TodoItem />
-
+              {/* <TodoItem
+                key={props.items[0].id}
+                text={props.items[0].text}
+                completed={props.items[0].completed}
+              />
+              <TodoItem
+                key={props.items[1].id}
+                text={props.items[1].text}
+                completed={props.items[1].completed}
+              />
+              <TodoItem
+                key={props.items[2].id}
+                text={props.items[2].text}
+                completed={props.items[2].completed}
+              />
+              <TodoItem
+                key={props.items[3].id}
+                text={props.items[3].text}
+                completed={props.items[3].completed}
+              /> */}
+              
+              {props.items.map((todo) => (
+                <TodoItem 
+                  key={todo.id}
+                  text={todo.text}
+                  completed={todo.completed}
+                />
+              ))}
             </div>
 
             <AddNewBtn />
