@@ -12,8 +12,9 @@ const TodoTable = (props) => {
         <Col className="col-lg-9 col-md-9 col-sm-12 col-12">
           <ul className="list-group">
             <li className="list-group-item bg-secondary text-light">
-              <input type="checkbox" disabled="disabled" checked /> Add Todos
-              here...
+              <h3>Add Todos here...</h3>
+              
+              
             </li>
             <div className="list-header">
               {/* {dynamic li's go here} */}

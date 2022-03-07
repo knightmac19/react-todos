@@ -8,7 +8,7 @@ import "./TodoItem.css";
 const TodoItem = (props) => {
   const [checkbox, setCheckbox] = useState(props.completed);
   const [textDecoration, setTextDecoration] = useState("");
-  const [displayTrashBtn, setDisplayTrashBtn] = useState("none");
+  const [displayTrashBtn, setDisplayTrashBtn] = useState("hidden");
 
   // const
 
@@ -26,7 +26,7 @@ const TodoItem = (props) => {
     } else {
       setCheckbox(false);
       setTextDecoration("");
-      setDisplayTrashBtn("none");
+      setDisplayTrashBtn("hidden");
     }
   };
 
@@ -43,8 +43,20 @@ const TodoItem = (props) => {
       className="list-group-item "
       style={{ overflow: "hidden" }}
     >
+      <Button
+        type="button"
+        color="danger"
+        className="clear-this-btn float-start m-1"
+        style={{ visibility: displayTrashBtn }}
+      >
+        <FontAwesomeIcon
+          className="clear-this-icon fa-lg"
+          aria-hidden="true"
+          icon={faTrashCan}
+        />
+      </Button>
       <input
-        className="my-checkbox"
+        className="my-checkbox m-1"
         type="checkbox"
         checked={checkbox}
         onChange={checkboxChangeHandler}
@@ -53,22 +65,12 @@ const TodoItem = (props) => {
         style={{
           textDecorationLine: textDecoration,
           textDecorationStyle: "solid",
+          textDecorationColor: "#BF7515",
+          textDecorationThickness: "4px",
         }}
       >
-        {props.text}{" "}
+        <h5>{props.text}</h5>
       </label>
-      <Button
-        type="button"
-        color="danger"
-        className="clear-this-btn float-end"
-        style={{ display: displayTrashBtn }}
-      >
-        <FontAwesomeIcon
-          className="clear-this-icon fa-lg"
-          aria-hidden="true"
-          icon={faTrashCan}
-        />
-      </Button>
     </li>
   );
 };
