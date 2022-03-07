@@ -6,7 +6,7 @@ import Footer from "./components/Layout/Footer";
 import TodoTable from "./components/Content/TodoTable";
 import ClearAllBtn from "./components/Content/ClearAllBtn";
 
-// import { Container, Row, Col, Button } from "reactstrap";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 const DUMMY_DATA = [
   { id: Math.random().toString(), text: "organize office", completed: false },
@@ -17,6 +17,10 @@ const DUMMY_DATA = [
 
 const App = () => {
   const [todos, setTodos] = useState(DUMMY_DATA);
+
+  const noRefCheck = () => {
+    console.log('inside noRefCheck')
+  }
 
   // console.log(DUMMY_DATA);
   // todos
@@ -32,7 +36,8 @@ const App = () => {
 
       <ClearAllBtn />
 
-      <TodoTable items={todos}/>
+      <TodoTable items={todos} />
+      
 
       <Footer />
     </div>
