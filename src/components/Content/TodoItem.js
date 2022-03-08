@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "reactstrap";
+import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
@@ -45,7 +45,7 @@ const TodoItem = (props) => {
     >
       <Button
         type="button"
-        color="danger"
+        variant="danger"
         className="clear-this-btn float-start m-1"
         style={{ visibility: displayTrashBtn }}
       >

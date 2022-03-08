@@ -6,7 +6,7 @@ import Footer from "./components/Layout/Footer";
 import TodoTable from "./components/Content/TodoTable";
 import ClearAllBtn from "./components/Content/ClearAllBtn";
 
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+// import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "react-bootstrap";
 
 const DUMMY_DATA = [
   { id: Math.random().toString(), text: "organize office", completed: false },
