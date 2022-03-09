@@ -28,7 +28,7 @@ const TodoTable = (props) => {
               ))}
             </div>
 
-            <AddNewBtn />
+            <AddNewBtn openModalHandler={props.openModalHandler} />
           </ul>
         </Col>
       </Row>

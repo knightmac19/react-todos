@@ -5,8 +5,9 @@ import Jumbotron from "./components/Layout/Jumbotron";
 import Footer from "./components/Layout/Footer";
 import TodoTable from "./components/Content/TodoTable";
 import ClearAllBtn from "./components/Content/ClearAllBtn";
+import NewModal from "./components/Content/NewModal";
 
-// import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 const DUMMY_DATA = [
   { id: Math.random().toString(), text: "organize office", completed: false },
@@ -17,27 +18,24 @@ const DUMMY_DATA = [
 
 const App = () => {
   const [todos, setTodos] = useState(DUMMY_DATA);
+  const [show, setShow] = useState(false);
 
-  const noRefCheck = () => {
-    console.log('inside noRefCheck')
-  }
+  const handleClose = () => {
+    setShow(false);
+  };
 
-  // console.log(DUMMY_DATA);
-  // todos
-  // write jsx in app for table
-  // write jsx in app for table header
-  // write jsx in app for each item
-  // split previous 3 into their own components
-  // map over the dummy data to create some elements
+  const openModalHandler = () => {
+    setShow(true);
+  };
 
   return (
     <div className="content-wrap">
       <Jumbotron />
 
       <ClearAllBtn />
+      <NewModal show={show} handleClose={handleClose} />
 
-      <TodoTable items={todos} />
-      
+      <TodoTable items={todos} openModalHandler={openModalHandler} />
 
       <Footer />
     </div>
