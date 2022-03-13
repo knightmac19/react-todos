@@ -11,9 +11,6 @@ const TodoItem = (props) => {
   const [displayTrashBtn, setDisplayTrashBtn] = useState("hidden");
 
   const checkboxChangeHandler = (e) => {
-    // console.log(e.target.value);
-    // console.log(e.target.parentNode.id);
-
     if (!checkbox) {
       setCheckbox(true);
       setTextDecoration("line-through");
@@ -32,6 +29,11 @@ const TodoItem = (props) => {
     }
   }, []);
 
+  const trashCanClicked = (e) => {
+    // console.log(props.id)
+    props.clearOneHandler(props.id);
+  };
+
   return (
     <li
       id={props.id}
@@ -46,6 +48,7 @@ const TodoItem = (props) => {
         variant="secondary"
         className="clear-this-btn float-start m-1"
         style={{ visibility: displayTrashBtn }}
+        onClick={trashCanClicked}
       >
         <FontAwesomeIcon
           className="clear-this-icon fa-lg"

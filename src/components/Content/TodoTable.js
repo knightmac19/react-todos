@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import AddNewBtn from "./AddNewBtn";
 import TodoItem from "./TodoItem";
 
@@ -22,9 +22,11 @@ const TodoTable = (props) => {
               {props.items.map((todo) => (
                 <TodoItem 
                   key={todo.id}
+                  id={todo.id}
                   text={todo.text}
                   completed={todo.completed}
                   priority={todo.priority}
+                  clearOneHandler={props.clearOneHandler}
                 />
               ))}
             </div>
