@@ -20,6 +20,7 @@ const TodoForm = (props) => {
           ref={focusInput}
           placeholder="Enter a todo..."
           onChange={props.todoChangeHandler}
+          onKeyPress={props.enterListener}
         />
       </Form.Group>
     </div>

@@ -6,8 +6,14 @@ const NewModal = (props) => {
   const [enteredTodo, setEnteredTodo] = useState("");
 
   const todoChangeHandler = (e) => {
-    // console.log(e.target.value);
     setEnteredTodo(e.target.value);
+  };
+
+  const enterListener = (e) => {
+    if (e.key === "Enter") {
+      setEnteredTodo(e.target.value);
+      saveModalHandler();
+    }
   };
 
   const saveModalHandler = (e) => {
@@ -32,7 +38,10 @@ const NewModal = (props) => {
           <Modal.Title>Add a Todo</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <TodoForm todoChangeHandler={todoChangeHandler} />
+          <TodoForm
+            todoChangeHandler={todoChangeHandler}
+            enterListener={enterListener}
+          />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={props.handleClose}>
