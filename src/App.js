@@ -60,6 +60,22 @@ const App = () => {
     localStorage.removeItem("myTodos");
   };
 
+  const updateOneChecked = (id) => {
+    const updatedArray = todos.map((todo) => {
+      if (todo.id === id) {
+        if (!todo.completed) {
+          return { ...todo, completed: true };
+        } else {
+          return { ...todo, completed: false };
+        }
+      }
+
+      return todo;
+    });
+
+    localStorage.setItem("myTodos", JSON.stringify(updatedArray));
+  };
+
   const clearOneHandler = (id) => {
     // console.log('supercalifragilisticexpialidoscis')
     // console.log(id)
@@ -91,6 +107,7 @@ const App = () => {
         items={todos}
         openModalHandler={openModalHandler}
         clearOneHandler={clearOneHandler}
+        updateOneChecked={updateOneChecked}
       />
 
       <Footer />

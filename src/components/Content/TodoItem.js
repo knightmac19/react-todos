@@ -20,6 +20,8 @@ const TodoItem = (props) => {
       setTextDecoration("");
       setDisplayTrashBtn("hidden");
     }
+
+    props.updateOneChecked(props.id);
   };
 
   useEffect(() => {
