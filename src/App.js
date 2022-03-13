@@ -55,6 +55,11 @@ const App = () => {
     handleClose();
   };
 
+  const clearAllHandler = () => {
+    setTodos([]);
+    localStorage.removeItem("myTodos");
+  };
+
   const handleClose = () => {
     setShow(false);
   };
@@ -67,7 +72,7 @@ const App = () => {
     <div className="content-wrap">
       <Jumbotron />
 
-      <ClearAllBtn />
+      <ClearAllBtn clearAllHandler={clearAllHandler} />
       <NewModal
         show={show}
         handleClose={handleClose}
