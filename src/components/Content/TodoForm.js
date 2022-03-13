@@ -2,6 +2,9 @@ import React, { useRef, useEffect } from "react";
 import { Form } from "react-bootstrap";
 
 const TodoForm = (props) => {
+  // console.log(props)
+  
+
   const focusInput = useRef();
 
   useEffect(() => {
@@ -16,6 +19,7 @@ const TodoForm = (props) => {
           type="input"
           ref={focusInput}
           placeholder="Enter a todo..."
+          onChange={props.todoChangeHandler}
         />
       </Form.Group>
     </div>

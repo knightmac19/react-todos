@@ -10,11 +10,6 @@ const TodoItem = (props) => {
   const [textDecoration, setTextDecoration] = useState("");
   const [displayTrashBtn, setDisplayTrashBtn] = useState("hidden");
 
-  // const
-
-  // console.log("in TodoItem");
-  // console.log(props);
-
   const checkboxChangeHandler = (e) => {
     // console.log(e.target.value);
     // console.log(e.target.parentNode.id);
@@ -41,11 +36,14 @@ const TodoItem = (props) => {
     <li
       id={props.id}
       className="list-group-item "
-      style={{ overflow: "hidden" }}
+      style={{
+        overflow: "hidden",
+        // backgroundColor: props.priority
+      }}
     >
       <Button
         type="button"
-        variant="danger"
+        variant="secondary"
         className="clear-this-btn float-start m-1"
         style={{ visibility: displayTrashBtn }}
       >

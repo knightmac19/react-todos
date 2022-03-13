@@ -10,15 +10,43 @@ import NewModal from "./components/Content/NewModal";
 import { Button } from "react-bootstrap";
 
 const DUMMY_DATA = [
-  { id: Math.random().toString(), text: "organize office", completed: false },
-  { id: Math.random().toString(), text: "pickup milk", completed: false },
-  { id: Math.random().toString(), text: "go to gym", completed: false },
-  { id: Math.random().toString(), text: "cook dinner", completed: true },
+  {
+    id: Math.random().toString(),
+    text: "organize office",
+    completed: false,
+    priority: "green",
+  },
+  {
+    id: Math.random().toString(),
+    text: "pickup milk",
+    completed: false,
+    priority: "yellow",
+  },
+  {
+    id: Math.random().toString(),
+    text: "go to gym",
+    completed: false,
+    priority: "red",
+  },
+  {
+    id: Math.random().toString(),
+    text: "cook dinner",
+    completed: true,
+    priority: "yellow",
+  },
 ];
 
 const App = () => {
   const [todos, setTodos] = useState(DUMMY_DATA);
   const [show, setShow] = useState(false);
+
+  const addTodoDataHandler = (enteredTodo) => {
+    setTodos((prevTodos) => {
+      return [ ...prevTodos, enteredTodo];
+    });
+
+    handleClose();
+  };
 
   const handleClose = () => {
     setShow(false);
@@ -33,7 +61,11 @@ const App = () => {
       <Jumbotron />
 
       <ClearAllBtn />
-      <NewModal show={show} handleClose={handleClose} />
+      <NewModal
+        show={show}
+        handleClose={handleClose}
+        addTodoDataHandler={addTodoDataHandler}
+      />
 
       <TodoTable items={todos} openModalHandler={openModalHandler} />
 

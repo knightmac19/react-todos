@@ -24,6 +24,7 @@ const TodoTable = (props) => {
                   key={todo.id}
                   text={todo.text}
                   completed={todo.completed}
+                  priority={todo.priority}
                 />
               ))}
             </div>
