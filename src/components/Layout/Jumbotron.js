@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Container } from "react-bootstrap";
-import "./Jumbotron.css";
 
 const Jumbotron = () => {
   const [dateTime, setDateTime] = useState(new Date());
