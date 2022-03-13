@@ -2,9 +2,6 @@ import React, { useRef, useEffect } from "react";
 import { Form } from "react-bootstrap";
 
 const TodoForm = (props) => {
-  // console.log(props)
-  
-
   const focusInput = useRef();
 
   useEffect(() => {

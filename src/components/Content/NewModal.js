@@ -24,11 +24,7 @@ const NewModal = (props) => {
       priority: "Low",
     };
 
-    console.log(newTodo);
-
     props.addTodoDataHandler(newTodo);
-
-    // props.handleClose();
   };
 
   return (
@@ -47,11 +43,14 @@ const NewModal = (props) => {
           <Button variant="secondary" onClick={props.handleClose}>
             Close
           </Button>
-          <Button style={{
-            background: '#BF7515',
-            borderStyle: 'solid',
-            border: '#BF7515'
-          }} onClick={saveModalHandler}>
+          <Button
+            style={{
+              background: "#BF7515",
+              borderStyle: "solid",
+              border: "#BF7515",
+            }}
+            onClick={saveModalHandler}
+          >
             Add Todo
           </Button>
         </Modal.Footer>

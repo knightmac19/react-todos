@@ -36,8 +36,6 @@ const TodoItem = (props) => {
     if (priority === "High") {
       setPriority("Low");
     }
-
-    // updatePriority(priority);
     props.togglePriority(props.id);
   };
 
@@ -50,20 +48,16 @@ const TodoItem = (props) => {
   }, [priority]);
 
   const trashCanClicked = (e) => {
-    // console.log(props.id)
     props.clearOneHandler(props.id);
   };
 
   const updatePriority = (val) => {
     if (val === "Low") {
       setItemBackground("linear-gradient(to right, gray, #b0bac2)");
-      // setItemBackground("gray");
     } else if (val === "Medium") {
       setItemBackground("linear-gradient(to right, #155fbf, #b0bac2)");
-      // setItemBackground("#155fbf");
     } else {
       setItemBackground("linear-gradient(to right, #BF7515, #b0bac2)");
-      // setItemBackground("#BF7515");
     }
   };
 

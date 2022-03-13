@@ -7,39 +7,9 @@ import TodoTable from "./components/Content/TodoTable";
 import ClearAllBtn from "./components/Content/ClearAllBtn";
 import NewModal from "./components/Content/NewModal";
 
-// import { Button } from "react-bootstrap";
-
-// const DUMMY_DATA = [
-//   {
-//     id: Math.random().toString(),
-//     text: "organize office",
-//     completed: false,
-//     priority: "green",
-//   },
-//   {
-//     id: Math.random().toString(),
-//     text: "pickup milk",
-//     completed: false,
-//     priority: "yellow",
-//   },
-//   {
-//     id: Math.random().toString(),
-//     text: "go to gym",
-//     completed: false,
-//     priority: "red",
-//   },
-//   {
-//     id: Math.random().toString(),
-//     text: "cook dinner",
-//     completed: true,
-//     priority: "yellow",
-//   },
-// ];
-
 const App = () => {
   let localStorageArray = JSON.parse(localStorage.getItem("myTodos")) || [];
 
-  // const [todos, setTodos] = useState(DUMMY_DATA);
   const [todos, setTodos] = useState(localStorageArray);
   const [show, setShow] = useState(false);
 
@@ -61,18 +31,17 @@ const App = () => {
   };
 
   const togglePriority = (id) => {
-
     const updatedArray = todos.map((todo) => {
       if (todo.id === id) {
-        if (todo.priority === 'Low') {
-          return { ...todo, priority: 'Medium' };
-        } 
-        if (todo.priority === 'Medium') {
-          return { ...todo, priority: 'High' };
-        } 
-        if (todo.priority === 'High') {
-          return { ...todo, priority: 'Low' };
-        } 
+        if (todo.priority === "Low") {
+          return { ...todo, priority: "Medium" };
+        }
+        if (todo.priority === "Medium") {
+          return { ...todo, priority: "High" };
+        }
+        if (todo.priority === "High") {
+          return { ...todo, priority: "Low" };
+        }
       }
 
       return todo;
@@ -81,15 +50,14 @@ const App = () => {
     setTodos(updatedArray);
 
     localStorage.setItem("myTodos", JSON.stringify(updatedArray));
-  }
+  };
 
   const updateOneChecked = (id) => {
-
     const updatedArray = todos.map((todo) => {
       if (todo.id === id) {
         if (todo.completed === false) {
           return { ...todo, completed: true };
-        } 
+        }
         if (todo.completed === true) {
           return { ...todo, completed: false };
         }
@@ -104,8 +72,6 @@ const App = () => {
   };
 
   const clearOneHandler = (id) => {
-    // console.log('supercalifragilisticexpialidoscis')
-    // console.log(id)
     let filteredTodos = todos.filter((todo) => todo.id !== id);
     setTodos(filteredTodos);
     localStorage.setItem("myTodos", JSON.stringify(filteredTodos));

@@ -9,8 +9,8 @@ const AddNewBtn = (props) => {
       onClick={props.openModalHandler}
       style={{
         backgroundColor: "#434656",
-        borderStyle: 'solid',
-        borderColor: '#434656',
+        borderStyle: "solid",
+        borderColor: "#434656",
         fontSize: "1.17em",
         fontWeight: "bolder",
       }}
