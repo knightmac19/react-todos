@@ -4,3 +4,28 @@ input.my-checkbox {
     position: relative;
     top: 5px;
 }
+
+/* .btn-dark {
+    color:red;
+    background-color: '#434656';
+    border-style: 'solid';
+    border-color: '#434656';
+} */
+
+/* .btn-dark:focus {
+    background-color: 'red';
+    border-style: 'solid';
+    border-color: '#434656';
+} */
+
+/* .btn-dark:hover {
+    background-color: 'red';
+    border-style: 'solid';
+    border-color: '#434656';
+} */
+
+/* .btn-dark:active {
+    background-color: 'red';
+    border-style: 'solid';
+    border-color: '#434656';
+} */

@@ -52,56 +52,68 @@ const TodoItem = (props) => {
   };
 
   return (
-    
-      <li
-        id={props.id}
-        className="list-group-item "
+    <li
+      id={props.id}
+      className="list-group-item "
+      style={{
+        overflow: "hidden",
+        margin: "10px",
+        background: itemBackground,
+        borderRadius: "5px",
+        border: "0.5px solid black",
+        boxShadow: "-5px 5px 5px black",
+      }}
+    >
+      <Button
+        type="button"
+        variant="danger"
+        className="clear-this-btn float-start m-1"
+        style={{ visibility: displayTrashBtn }}
+        onClick={trashCanClicked}
+      >
+        <FontAwesomeIcon
+          className="clear-this-icon fa-lg"
+          aria-hidden="true"
+          icon={faTrashCan}
+        />
+      </Button>
+      <input
+        className="my-checkbox m-1"
+        type="checkbox"
+        checked={checkbox}
+        onChange={checkboxChangeHandler}
+      />{" "}
+      <label
         style={{
-          overflow: "hidden",
-          margin: '10px',
-          background: itemBackground,
-          borderRadius: '5px',
-          border: '0.5px solid black',
-          boxShadow: '-5px 5px 5px black'
-          
+          textDecorationLine: textDecoration,
+          textDecorationStyle: "solid",
+          textDecorationColor: "#BF7515",
+          textDecorationThickness: "4px",
         }}
       >
-        <Button
-          type="button"
-          variant="danger"
-          className="clear-this-btn float-start m-1"
-          style={{ visibility: displayTrashBtn }}
-          onClick={trashCanClicked}
-        >
-          <FontAwesomeIcon
-            className="clear-this-icon fa-lg"
-            aria-hidden="true"
-            icon={faTrashCan}
-          />
-        </Button>
-        <input
-          className="my-checkbox m-1"
-          type="checkbox"
-          checked={checkbox}
-          onChange={checkboxChangeHandler}
-        />{" "}
-        <label
+        <h5
           style={{
-            textDecorationLine: textDecoration,
-            textDecorationStyle: "solid",
-            textDecorationColor: "#BF7515",
-            textDecorationThickness: "4px",
-            
+            fontWeight: "bold",
+            color: "#000000",
+            opacity: "1",
           }}
         >
-          <h5 style={{
-            fontWeight: 'bold',
-            color: '#000000',
-            opacity: '1',
-          }} >{props.text}</h5>
-        </label>
-      </li>
-    
+          {props.text}
+        </h5>
+      </label>
+      <Button
+        variant="dark"
+        style={{
+          backgroundColor: "#434656",
+          borderStyle: "solid",
+          borderColor: "#434656",
+        }}
+        className="float-end"
+        // onClick={}
+      >
+        {props.priority}
+      </Button>
+    </li>
   );
 };
 
