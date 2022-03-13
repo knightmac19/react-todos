@@ -21,7 +21,7 @@ const NewModal = (props) => {
       id: Math.random().toString(),
       text: enteredTodo,
       completed: false,
-      priority: "green",
+      priority: "high",
     };
 
     console.log(newTodo);
@@ -47,7 +47,11 @@ const NewModal = (props) => {
           <Button variant="secondary" onClick={props.handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={saveModalHandler}>
+          <Button style={{
+            background: '#BF7515',
+            borderStyle: 'solid',
+            border: '#BF7515'
+          }} onClick={saveModalHandler}>
             Add Todo
           </Button>
         </Modal.Footer>
