@@ -61,17 +61,22 @@ const App = () => {
   };
 
   const updateOneChecked = (id) => {
+    console.log('clicked')
+
     const updatedArray = todos.map((todo) => {
       if (todo.id === id) {
-        if (!todo.completed) {
+        if (todo.completed === false) {
           return { ...todo, completed: true };
-        } else {
+        } 
+        if (todo.completed === true) {
           return { ...todo, completed: false };
         }
       }
 
       return todo;
     });
+
+    setTodos(updatedArray);
 
     localStorage.setItem("myTodos", JSON.stringify(updatedArray));
   };

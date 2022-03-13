@@ -14,15 +14,15 @@ const TodoItem = (props) => {
   const checkboxChangeHandler = (e) => {
     if (!checkbox) {
       setCheckbox(true);
+      props.updateOneChecked(props.id);
       setTextDecoration("line-through");
       setDisplayTrashBtn("");
     } else {
       setCheckbox(false);
+      props.updateOneChecked(props.id);
       setTextDecoration("");
       setDisplayTrashBtn("hidden");
     }
-
-    props.updateOneChecked(props.id);
   };
 
   useEffect(() => {
