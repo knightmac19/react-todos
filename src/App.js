@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 import Jumbotron from "./components/Layout/Jumbotron";
@@ -37,12 +37,19 @@ const DUMMY_DATA = [
 ];
 
 const App = () => {
-  const [todos, setTodos] = useState(DUMMY_DATA);
+  let localStorageArray = JSON.parse(localStorage.getItem("myTodos")) || [];
+
+  // const [todos, setTodos] = useState(DUMMY_DATA);
+  const [todos, setTodos] = useState(localStorageArray);
   const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("myTodos", JSON.stringify(todos));
+  }, [todos]);
 
   const addTodoDataHandler = (enteredTodo) => {
     setTodos((prevTodos) => {
-      return [ ...prevTodos, enteredTodo];
+      return [...prevTodos, enteredTodo];
     });
 
     handleClose();
