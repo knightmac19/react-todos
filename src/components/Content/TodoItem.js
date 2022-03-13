@@ -10,6 +10,7 @@ const TodoItem = (props) => {
   const [textDecoration, setTextDecoration] = useState("");
   const [displayTrashBtn, setDisplayTrashBtn] = useState("hidden");
   const [itemBackground, setItemBackground] = useState("");
+  const [priority, setPriority] = useState(props.priority);
 
   const checkboxChangeHandler = (e) => {
     if (!checkbox) {
@@ -25,24 +26,39 @@ const TodoItem = (props) => {
     }
   };
 
+  const priorityChangeHandler = (e) => {
+    if (priority === "Low") {
+      setPriority("Medium");
+    }
+    if (priority === "Medium") {
+      setPriority("High");
+    }
+    if (priority === "High") {
+      setPriority("Low");
+    }
+
+    // updatePriority(priority);
+    props.togglePriority(props.id);
+  };
+
   useEffect(() => {
     if (checkbox) {
       setTextDecoration("line-through");
       setDisplayTrashBtn("");
     }
-    setPriority(props.priority);
-  }, []);
+    updatePriority(props.priority);
+  }, [priority]);
 
   const trashCanClicked = (e) => {
     // console.log(props.id)
     props.clearOneHandler(props.id);
   };
 
-  const setPriority = (val) => {
-    if (val === "low") {
+  const updatePriority = (val) => {
+    if (val === "Low") {
       setItemBackground("linear-gradient(to right, gray, #b0bac2)");
       // setItemBackground("gray");
-    } else if (val === "medium") {
+    } else if (val === "Medium") {
       setItemBackground("linear-gradient(to right, #155fbf, #b0bac2)");
       // setItemBackground("#155fbf");
     } else {
@@ -109,9 +125,9 @@ const TodoItem = (props) => {
           borderColor: "#434656",
         }}
         className="float-end"
-        // onClick={}
+        onClick={priorityChangeHandler}
       >
-        {props.priority}
+        {priority}
       </Button>
     </li>
   );

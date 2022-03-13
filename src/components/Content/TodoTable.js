@@ -30,6 +30,7 @@ const TodoTable = (props) => {
                   priority={todo.priority}
                   clearOneHandler={props.clearOneHandler}
                   updateOneChecked={props.updateOneChecked}
+                  togglePriority={props.togglePriority}
                 />
               ))}
             </div>

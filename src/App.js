@@ -60,8 +60,30 @@ const App = () => {
     localStorage.removeItem("myTodos");
   };
 
+  const togglePriority = (id) => {
+
+    const updatedArray = todos.map((todo) => {
+      if (todo.id === id) {
+        if (todo.priority === 'Low') {
+          return { ...todo, priority: 'Medium' };
+        } 
+        if (todo.priority === 'Medium') {
+          return { ...todo, priority: 'High' };
+        } 
+        if (todo.priority === 'High') {
+          return { ...todo, priority: 'Low' };
+        } 
+      }
+
+      return todo;
+    });
+
+    setTodos(updatedArray);
+
+    localStorage.setItem("myTodos", JSON.stringify(updatedArray));
+  }
+
   const updateOneChecked = (id) => {
-    console.log('clicked')
 
     const updatedArray = todos.map((todo) => {
       if (todo.id === id) {
@@ -113,6 +135,7 @@ const App = () => {
         openModalHandler={openModalHandler}
         clearOneHandler={clearOneHandler}
         updateOneChecked={updateOneChecked}
+        togglePriority={togglePriority}
       />
 
       <Footer />

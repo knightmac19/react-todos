@@ -21,7 +21,7 @@ const NewModal = (props) => {
       id: Math.random().toString(),
       text: enteredTodo,
       completed: false,
-      priority: "high",
+      priority: "Low",
     };
 
     console.log(newTodo);
