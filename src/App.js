@@ -99,6 +99,9 @@ const App = () => {
       {/* <InputForm /> */}
       <TodoTable
         items={todos}
+
+        addTodoDataHandler={addTodoDataHandler}
+        
         openModalHandler={openModalHandler}
         clearOneHandler={clearOneHandler}
         updateOneChecked={updateOneChecked}

@@ -1,10 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import AddNewBtn from "./AddNewBtn";
+// import AddNewBtn from "./AddNewBtn";
 import TodoItem from "./TodoItem";
 import InputForm from "./InputForm";
 
 const TodoTable = (props) => {
+  const [enteredTodo, setEnteredTodo] = useState("");
+
+  const todoChangeHandler = (e) => {
+    setEnteredTodo(e.target.value);
+  };
+
+  const enterListener = (e) => {
+    if (e.key === "Enter") {
+      setEnteredTodo(e.target.value);
+      saveModalHandler();
+    }
+  };
+
+  const saveModalHandler = (e) => {
+    const newTodo = {
+      id: Math.random().toString(),
+      text: enteredTodo,
+      completed: false,
+      priority: "Low",
+    };
+
+    props.addTodoDataHandler(newTodo);
+  };
+
   return (
     <Container style={{ marginBottom: "80px" }} className="">
       <Row className="mb-2 justify-content-center">
@@ -19,7 +43,11 @@ const TodoTable = (props) => {
               className="list-group-item text-light"
             >
               {/* <h3>Add Todos here...</h3> */}
-              <InputForm />
+              <InputForm
+                todoChangeHandler={todoChangeHandler}
+                enterListener={enterListener}
+                saveModalHandler={saveModalHandler}
+              />
             </li>
             <div className="list-header">
               {props.items.map((todo) => (

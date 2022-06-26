@@ -35,6 +35,7 @@ const InputForm = (props) => {
             fontSize: "0.9em",
             fontWeight: "bolder",
           }}
+          onClick={props.saveModalHandler}
         >
            <FontAwesomeIcon icon={faPlus} className="fa-lg" />
         </Button>
