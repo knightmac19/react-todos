@@ -26,6 +26,7 @@ const TodoTable = (props) => {
       priority: "Low",
     };
 
+    setEnteredTodo("");
     props.addTodoDataHandler(newTodo);
   };
 
@@ -44,9 +45,11 @@ const TodoTable = (props) => {
             >
               {/* <h3>Add Todos here...</h3> */}
               <InputForm
+                // className="my-input-form"
                 todoChangeHandler={todoChangeHandler}
                 enterListener={enterListener}
                 saveModalHandler={saveModalHandler}
+                value={enteredTodo}
               />
             </li>
             <div className="list-header">

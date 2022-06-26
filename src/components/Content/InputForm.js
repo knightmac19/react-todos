@@ -24,9 +24,12 @@ const InputForm = (props) => {
           type="input"
           ref={focusInput}
           placeholder="Enter a todo..."
+          value={props.value}
           onChange={props.todoChangeHandler}
           onKeyPress={props.enterListener}
-        />
+        >
+
+        </Form.Control>
         <Button
           style={{
             width: "25%",
