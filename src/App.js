@@ -34,14 +34,14 @@ const App = () => {
   const togglePriority = (id) => {
     const updatedArray = todos.map((todo) => {
       if (todo.id === id) {
-        if (todo.priority === "Low") {
-          return { ...todo, priority: "Medium" };
+        if (todo.priority === "Lo") {
+          return { ...todo, priority: "Med" };
         }
-        if (todo.priority === "Medium") {
-          return { ...todo, priority: "High" };
+        if (todo.priority === "Med") {
+          return { ...todo, priority: "Hi" };
         }
-        if (todo.priority === "High") {
-          return { ...todo, priority: "Low" };
+        if (todo.priority === "Hi") {
+          return { ...todo, priority: "Lo" };
         }
       }
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faPencil } from "@fortawesome/free-solid-svg-icons";
 
 import "./TodoItem.css";
 
@@ -27,14 +28,14 @@ const TodoItem = (props) => {
   };
 
   const priorityChangeHandler = (e) => {
-    if (priority === "Low") {
-      setPriority("Medium");
+    if (priority === "Lo") {
+      setPriority("Med");
     }
-    if (priority === "Medium") {
-      setPriority("High");
+    if (priority === "Med") {
+      setPriority("Hi");
     }
-    if (priority === "High") {
-      setPriority("Low");
+    if (priority === "Hi") {
+      setPriority("Lo");
     }
     props.togglePriority(props.id);
   };
@@ -52,9 +53,9 @@ const TodoItem = (props) => {
   };
 
   const updatePriority = (val) => {
-    if (val === "Low") {
+    if (val === "Lo") {
       setItemBackground("linear-gradient(to right, gray, #b0bac2)");
-    } else if (val === "Medium") {
+    } else if (val === "Med") {
       setItemBackground("linear-gradient(to right, #155fbf, #b0bac2)");
     } else {
       setItemBackground("linear-gradient(to right, #BF7515, #b0bac2)");
@@ -72,13 +73,35 @@ const TodoItem = (props) => {
         borderRadius: "5px",
         border: "0.5px solid black",
         boxShadow: "-5px 5px 5px black",
+        paddingRight:'5px',
+        paddingLeft:'5px',
       }}
     >
       <Button
         type="button"
+        variant="secondary"
+        className="clear-this-btn float-start m-1"
+        style={{
+          padding:'5px'
+        }}
+        // style={{ visibility: displayTrashBtn }}
+        // onClick={trashCanClicked}
+      >
+        <FontAwesomeIcon
+          className="clear-this-icon fa-lg"
+          aria-hidden="true"
+          icon={faPencil}
+        />
+      </Button>
+      <Button
+        type="button"
         variant="danger"
         className="clear-this-btn float-start m-1"
-        style={{ visibility: displayTrashBtn }}
+        style={{
+          padding:'5px',
+          visibility: displayTrashBtn
+        }}
+        
         onClick={trashCanClicked}
       >
         <FontAwesomeIcon
@@ -87,26 +110,31 @@ const TodoItem = (props) => {
           icon={faTrashCan}
         />
       </Button>
-      <input
+      {/* <input
         className="my-checkbox m-1"
         type="checkbox"
         checked={checkbox}
         onChange={checkboxChangeHandler}
-      />{" "}
+      />{" "} */}
       <label
         style={{
           textDecorationLine: textDecoration,
           textDecorationStyle: "solid",
           textDecorationColor: "#BF7515",
           textDecorationThickness: "4px",
+          paddingTop: '10px',
+          paddingRight: '95px'
         }}
+        onClick={checkboxChangeHandler}
       >
         <h5
           style={{
             fontWeight: "bold",
             color: "#000000",
             opacity: "1",
+            
           }}
+          
         >
           {props.text}
         </h5>
@@ -117,6 +145,8 @@ const TodoItem = (props) => {
           backgroundColor: "#434656",
           borderStyle: "solid",
           borderColor: "#434656",
+          marginTop:'5px',
+          padding:'5px'
         }}
         className="float-end"
         onClick={priorityChangeHandler}

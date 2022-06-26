@@ -23,7 +23,7 @@ const TodoTable = (props) => {
       id: Math.random().toString(),
       text: enteredTodo,
       completed: false,
-      priority: "Low",
+      priority: "Hi",
     };
 
     setEnteredTodo("");
