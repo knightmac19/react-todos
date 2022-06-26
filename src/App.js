@@ -5,14 +5,11 @@ import Jumbotron from "./components/Layout/Jumbotron";
 import Footer from "./components/Layout/Footer";
 import TodoTable from "./components/Content/TodoTable";
 import ClearAllBtn from "./components/Content/ClearAllBtn";
-import NewModal from "./components/Content/NewModal";
-// import InputForm from "./components/Content/InputForm";
 
 const App = () => {
   let localStorageArray = JSON.parse(localStorage.getItem("myTodos")) || [];
 
   const [todos, setTodos] = useState(localStorageArray);
-  const [show, setShow] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("myTodos", JSON.stringify(todos));
@@ -22,8 +19,6 @@ const App = () => {
     setTodos((prevTodos) => {
       return [...prevTodos, enteredTodo];
     });
-
-    handleClose();
   };
 
   const clearAllHandler = () => {
@@ -78,31 +73,15 @@ const App = () => {
     localStorage.setItem("myTodos", JSON.stringify(filteredTodos));
   };
 
-  const handleClose = () => {
-    setShow(false);
-  };
-
-  const openModalHandler = () => {
-    setShow(true);
-  };
-
   return (
     <div className="content-wrap">
       <Jumbotron />
 
       <ClearAllBtn clearAllHandler={clearAllHandler} />
-      <NewModal
-        show={show}
-        handleClose={handleClose}
-        addTodoDataHandler={addTodoDataHandler}
-      />
-      {/* <InputForm /> */}
+
       <TodoTable
         items={todos}
-
         addTodoDataHandler={addTodoDataHandler}
-        
-        openModalHandler={openModalHandler}
         clearOneHandler={clearOneHandler}
         updateOneChecked={updateOneChecked}
         togglePriority={togglePriority}
