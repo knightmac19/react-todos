@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import AddNewBtn from "./AddNewBtn";
 import TodoItem from "./TodoItem";
+import InputForm from "./InputForm";
 
 const TodoTable = (props) => {
   return (
@@ -17,7 +18,8 @@ const TodoTable = (props) => {
               }}
               className="list-group-item text-light"
             >
-              <h3>Add Todos here...</h3>
+              {/* <h3>Add Todos here...</h3> */}
+              <InputForm />
             </li>
             <div className="list-header">
               {props.items.map((todo) => (
@@ -34,7 +36,7 @@ const TodoTable = (props) => {
               ))}
             </div>
 
-            <AddNewBtn openModalHandler={props.openModalHandler} />
+            {/* <AddNewBtn openModalHandler={props.openModalHandler} /> */}
           </ul>
         </Col>
       </Row>

@@ -6,6 +6,7 @@ import Footer from "./components/Layout/Footer";
 import TodoTable from "./components/Content/TodoTable";
 import ClearAllBtn from "./components/Content/ClearAllBtn";
 import NewModal from "./components/Content/NewModal";
+// import InputForm from "./components/Content/InputForm";
 
 const App = () => {
   let localStorageArray = JSON.parse(localStorage.getItem("myTodos")) || [];
@@ -95,7 +96,7 @@ const App = () => {
         handleClose={handleClose}
         addTodoDataHandler={addTodoDataHandler}
       />
-
+      {/* <InputForm /> */}
       <TodoTable
         items={todos}
         openModalHandler={openModalHandler}
