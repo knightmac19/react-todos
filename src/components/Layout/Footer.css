@@ -2,14 +2,14 @@
   position: absolute;
   bottom: 0px;
   width: 100%;
-  height: 45px;
+  height: 25px;
 
   background-color: #155fbf;
 }
 
 .footer-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   vertical-align: middle;
   margin: 0 auto;

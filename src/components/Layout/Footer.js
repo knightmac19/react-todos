@@ -8,8 +8,8 @@ const Footer = () => {
   return (
     <div>
       <div className="footer-layout">
-        <div className="footer-content pt-2">
-          <h5>
+        <div className="footer-content ">
+          <p>
             &copy; Patrick Dunn 2022{" "}
             <a
               href="https://github.com/knightmac19/react-todos"
@@ -18,7 +18,7 @@ const Footer = () => {
             >
               <FontAwesomeIcon icon={faGithub} className="fa-lg icon" />
             </a>
-          </h5>
+          </p>
         </div>
       </div>
     </div>
